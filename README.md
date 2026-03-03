@@ -3,9 +3,7 @@ A short atmospheric horror game developed in 3 days for a Game Jam.
 
 ## About the Game 
 
-The Last Christmas is a short atmospheric horror experience created during a Game Jam.
-
-The project focuses on atmospheric horror. 
+You play as an overworked elf who has finally snapped under Santa's oppressive rule. Armed with a weapon, your objective is simple: eliminate your fellow elves, solve a quick color-based puzzle, and make your way to a final confrontation with Santa Claus himself.
 
 ## Built With 
 
