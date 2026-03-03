@@ -1,42 +1,51 @@
-🎄 The Last Christmas
+# The Last Christmas 
+A short atmospheric horror game developed in 3 days for a Game Jam.
 
-A GameJam game made in 3 days.
+## About the Game 
 
-🎮 About the Game
+The Last Christmas is a short atmospheric horror experience created during a Game Jam.
 
-The Last Christmas is a short game developed in 3 days during a Game Jam.
-The project focuses on atmospheric horror.
+The project focuses on atmospheric horror. 
 
-🛠 Built With
+## Built With 
 
-Godot Engine
+- Godot Engine 4.3
 
-GDScript
+- GDScript
+  
+## Screenshots 
 
-📸 Screenshots
+![Gameplay](GameplayScreenshots/GameplayMenu.png) 
 
-![Gameplay](GameplayScreenshots/GameplayMenu.png)
+![Gameplay](GameplayScreenshots/Gameplay2.png) 
 
-🚀 How to Run
+![Gameplay](GameplayScreenshots/Gameplay3.png) 
 
-Download the project
+## How to Run 
 
-Open with Godot (versão X.X)
+1. Download the project
+   
+2. Open with Godot (Version 4.3)
+   
+3. Run the main scene
+   
+Or 
 
-Run the main scene
+You can play in Itch.io -> [The Last Chritmas](https://creper70.itch.io/the-last-christmas)
+   
+## What I Learned 
 
-🎯 What I Learned
+- Managing scope under extreme time constraints
+  
+- Rapid prototyping mechanics
+  
+- Improved understanding of Godot's signal system
 
-Time management under pressure
 
-Rapid prototyping
+## Role
 
-[outras coisas que você aprendeu]
+This project was developed in collaboration.
 
-📌 Future Improvements
+I was responsible for all programming and technical implementation, including gameplay systems, signal architecture and overall game logic.
 
-Improve UI
-
-Add sound effects
-
-Polish gameplay
+All art and visual assets were created by Pedro Henrique.
