@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://jh2fwndodxhg"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ox2ns"]
+[ext_resource type="Texture2D" uid="uid://bgqw68dr64e6h" path="res://icon.svg" id="2_tbu8o"]
+[ext_resource type="Script" path="res://Scripts/mouse_follow.gd" id="3_fyc68"]
+[ext_resource type="AudioStream" uid="uid://b8k2swgmhjag0" path="res://sounds/Shoot.mp3" id="4_2v5hb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj57l"]
+size = Vector2(128, 126)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ox2ns")
+input_locked = null
+walk_speed = null
+run_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tbu8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aj57l")
+
+[node name="MouseFollow" type="Marker2D" parent="."]
+script = ExtResource("3_fyc68")
+
+[node name="HitScan" type="RayCast2D" parent="MouseFollow"]
+position = Vector2(65, -1)
+target_position = Vector2(1045, 0)
+
+[node name="shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2v5hb")
+volume_db = -7.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

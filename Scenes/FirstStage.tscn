@@ -1,0 +1,260 @@
+[gd_scene load_steps=15 format=4 uid="uid://cppywb0mwpcg0"]
+
+[ext_resource type="Script" path="res://Scenes/first_stage.gd" id="1_akp8u"]
+[ext_resource type="PackedScene" uid="uid://jh2fwndodxhg" path="res://Scenes/player.tscn" id="1_gotyy"]
+[ext_resource type="Texture2D" uid="uid://cbktlfnoe4p7d" path="res://Sprites/Tilemap/AtlasTeste.png" id="2_nyfwe"]
+[ext_resource type="Texture2D" uid="uid://1s7f7p81uo5w" path="res://Sprites/assets/ElfoMorto.png" id="4_hbw5b"]
+[ext_resource type="PackedScene" uid="uid://duqj8fsxyot0u" path="res://Scenes/porta.tscn" id="4_pvemy"]
+[ext_resource type="PackedScene" uid="uid://dedgot48xyuf8" path="res://Scenes/enemy.tscn" id="5_oy1ow"]
+[ext_resource type="Texture2D" uid="uid://d2o3mhwk7ep4s" path="res://Sprites/assets/ArmaHighlight.png" id="6_kqqvy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_otf73"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7beh"]
+texture = ExtResource("2_nyfwe")
+texture_region_size = Vector2i(256, 256)
+2:5/0 = 0
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 88, -128, 88, 128, -128, 128)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 82, 86, 84, 88, 128, -128, 128)
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 82, -128, 84)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -90, 128, -86, 86, -128, 84)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-84, -128, 128, -128, 128, 128, -90, 128)
+4:6/0 = 0
+4:5/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+6:3/0 = 0
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58, -64, 58, -62, 58, 128, -56, 128)
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58, -64, 58, -62, 58, 128, -56, 128)
+6:5/0 = 0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58, -128, 58, -128, 60, 64, -66, 60)
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58, -128, 58, -128, 60, 64, -66, 60)
+3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:6/0 = 0
+2:3/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3co5d"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_otf73")
+sources/0 = SubResource("TileSetAtlasSource_v7beh")
+
+[sub_resource type="Animation" id="Animation_medj8"]
+resource_name = "DeadTransition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AliveElfs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeadElfs:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.733333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"killElfs"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_sprite3"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8a2j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AliveElfs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeadElfs:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7b6et"]
+_data = {
+"DeadTransition": SubResource("Animation_medj8"),
+"RESET": SubResource("Animation_8a2j4")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw47d"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="FirstStage" type="Node2D"]
+script = ExtResource("1_akp8u")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9/wUAAAACAAUAAAD9/wQAAAACAAUAAAD9/wMAAAACAAUAAAD9/wIAAAACAAUAAAD9/wEAAAACAAUAAAD9/wAAAAACAAUAAAD+/wUAAAAFAAUAADD//wUAAAACAAUAAAAAAAUAAAACAAUAAAABAAUAAAAGAAQAAAACAAUAAAACAAUAAAADAAUAAAACAAUAAAAEAAUAAAAHAAMAAAAFAAUAAAACAAUAAAAFAAQAAAACAAUAAAAFAAMAAAACAAUAAAAFAAIAAAACAAUAAAAFAAEAAAACAAUAAAAFAAAAAAACAAUAAAAEAAAAAAAGAAQAADADAAAAAAACAAUAAAACAAAAAAACAAUAAAABAAAAAAAGAAUAAAAAAAAAAAACAAUAAAD//wAAAAACAAUAAAD+/wAAAAAGAAQAADD+/wEAAAACAAUAAAD//wEAAAACAAUAAAAAAAEAAAACAAUAAAABAAEAAAACAAUAAAACAAEAAAACAAUAAAADAAEAAAACAAUAAAAEAAEAAAACAAUAAAAEAAIAAAACAAUAAAADAAIAAAACAAUAAAACAAIAAAACAAUAAAABAAIAAAACAAUAAAD//wIAAAACAAUAAAD+/wIAAAACAAUAAAD+/wMAAAACAAUAAAD//wMAAAACAAUAAAAAAAMAAAACAAUAAAACAAMAAAACAAUAAAADAAMAAAACAAUAAAAEAAMAAAACAAUAAAAEAAQAAAACAAUAAAADAAQAAAACAAUAAAACAAQAAAACAAUAAAABAAQAAAACAAUAAAAAAAQAAAACAAUAAAD//wQAAAACAAUAAAD+/wQAAAACAAUAAAAFAAYAAAABAAYAAAAEAAYAAAABAAYAAAADAAYAAAABAAYAAAACAAYAAAABAAYAAAABAAYAAAABAAYAAAAAAAYAAAABAAYAAAD//wYAAAABAAYAAAD+/wYAAAABAAYAAAD9/wYAAAABAAYAAAD8/wYAAAABAAYAAAD8/wUAAAABAAUAAAD8/wQAAAABAAUAAAD8/wMAAAABAAUAAAD8/wIAAAABAAUAAAD8/wEAAAABAAUAAAD8/wAAAAABAAUAAAD8////AAABAAQAAAD7/wYAAAAAAAYAAAD7/wUAAAAAAAUAAAD7/wQAAAAAAAUAAAD7/wMAAAAAAAUAAAD7/wIAAAAAAAUAAAD7/wEAAAAAAAUAAAD7/wAAAAAAAAUAAAD7////AAAAAAQAAAD9////AAACAAQAAAD+////AAAFAAQAAAD/////AAACAAQAAAAAAP//AAACAAQAAAABAP//AAAFAAQAAAACAP//AAACAAQAAAADAP//AAACAAQAAAAEAP//AAAFAAQAAAAFAP//AAACAAQAAAAGAP//AAADAAQAAAAGAAAAAAADAAUAAAAGAAEAAAADAAUAAAAGAAUAAAADAAUAAAAGAAQAAAADAAUAAAAGAAMAAAADAAUAAAAGAAIAAAACAAYAAAD8//7/AAABAAMAAAD9//7/AAABAAMAAAD+//7/AAABAAMAAAD///7/AAABAAMAAAAAAP7/AAABAAMAAAABAP7/AAABAAMAAAACAP7/AAABAAMAAAADAP7/AAABAAMAAAAEAP7/AAABAAMAAAAFAP7/AAABAAMAAAAGAP7/AAABAAMAAAD7//7/AAAAAAMAAAAHAP7/AAAEAAMAAAAHAP//AAAEAAQAAAAHAAAAAAAEAAQAAAAHAAEAAAAEAAQAAAAHAAIAAAAEAAQAAAAHAAMAAAAEAAQAAAAHAAQAAAAEAAQAAAAHAAUAAAAEAAQAAAAHAAYAAAAEAAYAAAAGAAYAAAABAAYAAAABAAMAAAACAAUAAAAAAAIAAAACAAUAAAA=")
+tile_set = SubResource("TileSet_3co5d")
+
+[node name="Player" parent="." instance=ExtResource("1_gotyy")]
+position = Vector2(-392, 1169)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.4, 0.4)
+limit_left = -567
+limit_top = -306
+limit_right = 1845
+limit_bottom = 1590
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="Porta" parent="." instance=ExtResource("4_pvemy")]
+position = Vector2(1636, 636)
+
+[node name="AliveElfs" type="Node2D" parent="."]
+
+[node name="enemy" parent="AliveElfs" instance=ExtResource("5_oy1ow")]
+position = Vector2(384, 1189)
+
+[node name="enemy2" parent="AliveElfs" instance=ExtResource("5_oy1ow")]
+position = Vector2(1151, 1189)
+
+[node name="enemy3" parent="AliveElfs" instance=ExtResource("5_oy1ow")]
+position = Vector2(-389, 263)
+
+[node name="enemy4" parent="AliveElfs" instance=ExtResource("5_oy1ow")]
+position = Vector2(393, 260)
+
+[node name="enemy5" parent="AliveElfs" instance=ExtResource("5_oy1ow")]
+position = Vector2(1161, 259)
+
+[node name="DeadElfs" type="Node2D" parent="."]
+visible = false
+
+[node name="DeadElf" type="Sprite2D" parent="DeadElfs"]
+position = Vector2(-377, 305)
+texture = ExtResource("4_hbw5b")
+
+[node name="DeadElf2" type="Sprite2D" parent="DeadElfs"]
+position = Vector2(404, 305)
+texture = ExtResource("4_hbw5b")
+
+[node name="DeadElf3" type="Sprite2D" parent="DeadElfs"]
+position = Vector2(1177, 305)
+texture = ExtResource("4_hbw5b")
+
+[node name="DeadElf4" type="Sprite2D" parent="DeadElfs"]
+position = Vector2(386, 1213)
+texture = ExtResource("4_hbw5b")
+
+[node name="DeadElf5" type="Sprite2D" parent="DeadElfs"]
+position = Vector2(1170, 1214)
+texture = ExtResource("4_hbw5b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7b6et")
+}
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -1094.0
+offset_top = -300.0
+offset_right = 1861.0
+offset_bottom = 1595.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw47d")
+
+[node name="Gun" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-388, 1449)
+texture = ExtResource("6_kqqvy")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]

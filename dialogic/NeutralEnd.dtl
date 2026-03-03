@@ -1,0 +1,8 @@
+Santa: So… you finally arrived…
+Santa: I see you killed many of my elves… your own brothers.
+Santa: You have great potential.
+Santa: Will you join me?
+- Join Santa’s side
+	[signal arg="Allie"]
+- Kill him
+	[signal arg="Enemy"]

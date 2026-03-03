@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfccu83xycfli"]
+
+[ext_resource type="Script" path="res://Scripts/puzzle_cor.gd" id="1_d73kk"]
+[ext_resource type="Texture2D" uid="uid://cn01t1gyeui7y" path="res://Sprites/assets/PainelBotoes.png" id="2_xgpu7"]
+[ext_resource type="AudioStream" uid="uid://ysf3qh3gdc41" path="res://sounds/button.mp3" id="3_r3hci"]
+[ext_resource type="AudioStream" uid="uid://coocrclt263l7" path="res://sounds/errorsound.mp3" id="4_6jv54"]
+
+[node name="PuzzleCor" type="CanvasLayer"]
+script = ExtResource("1_d73kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_xgpu7")
+
+[node name="vermelho" type="Button" parent="."]
+offset_left = 474.0
+offset_top = 92.0
+offset_right = 531.0
+offset_bottom = 151.0
+focus_mode = 0
+flat = true
+
+[node name="amarelo" type="Button" parent="."]
+offset_left = 550.0
+offset_top = 93.0
+offset_right = 604.0
+offset_bottom = 151.0
+focus_mode = 0
+flat = true
+
+[node name="verde" type="Button" parent="."]
+offset_left = 620.0
+offset_top = 94.0
+offset_right = 678.0
+offset_bottom = 151.0
+focus_mode = 0
+flat = true
+
+[node name="azul" type="Button" parent="."]
+offset_left = 474.0
+offset_top = 178.0
+offset_right = 531.0
+offset_bottom = 237.0
+focus_mode = 0
+flat = true
+
+[node name="lilas" type="Button" parent="."]
+offset_left = 548.0
+offset_top = 178.0
+offset_right = 605.0
+offset_bottom = 237.0
+focus_mode = 0
+flat = true
+
+[node name="rosa" type="Button" parent="."]
+offset_left = 619.0
+offset_top = 180.0
+offset_right = 678.0
+offset_bottom = 237.0
+focus_mode = 0
+flat = true
+
+[node name="preto" type="Button" parent="."]
+offset_left = 471.0
+offset_top = 263.0
+offset_right = 531.0
+offset_bottom = 318.0
+focus_mode = 0
+flat = true
+
+[node name="bege" type="Button" parent="."]
+offset_left = 549.0
+offset_top = 262.0
+offset_right = 605.0
+offset_bottom = 317.0
+focus_mode = 0
+flat = true
+
+[node name="branco" type="Button" parent="."]
+offset_left = 620.0
+offset_top = 262.0
+offset_right = 676.0
+offset_bottom = 317.0
+focus_mode = 0
+flat = true
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r3hci")
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6jv54")
+
+[node name="backButton" type="Button" parent="."]
+offset_left = 1024.0
+offset_top = 574.0
+offset_right = 1119.0
+offset_bottom = 622.0
+text = "Back"
+
+[connection signal="pressed" from="vermelho" to="." method="_on_vermelho_pressed"]
+[connection signal="pressed" from="amarelo" to="." method="_on_amarelo_pressed"]
+[connection signal="pressed" from="verde" to="." method="_on_verde_pressed"]
+[connection signal="pressed" from="azul" to="." method="_on_azul_pressed"]
+[connection signal="pressed" from="lilas" to="." method="_on_lilas_pressed"]
+[connection signal="pressed" from="rosa" to="." method="_on_rosa_pressed"]
+[connection signal="pressed" from="preto" to="." method="_on_preto_pressed"]
+[connection signal="pressed" from="bege" to="." method="_on_bege_pressed"]
+[connection signal="pressed" from="branco" to="." method="_on_branco_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

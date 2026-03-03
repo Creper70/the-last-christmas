@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dedgot48xyuf8"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_hrx1w"]
+[ext_resource type="Texture2D" uid="uid://cnkjj4rytn3nk" path="res://Sprites/assets/NPC_ElfoFrente.png" id="2_vlsu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0y6s"]
+size = Vector2(242, 197.5)
+
+[node name="enemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_hrx1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vlsu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 49.75)
+shape = SubResource("RectangleShape2D_d0y6s")

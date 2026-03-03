@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://duqj8fsxyot0u"]
+
+[ext_resource type="Script" path="res://Scripts/porta.gd" id="1_pb5ty"]
+[ext_resource type="AudioStream" uid="uid://bcw0eenifboel" path="res://sounds/DoorOpening.mp3" id="2_qgryv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7brt"]
+size = Vector2(929.031, 90.4217)
+
+[node name="Porta" type="Area2D"]
+scale = Vector2(0.242188, 1.70313)
+script = ExtResource("1_pb5ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u7brt")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qgryv")
+pitch_scale = 1.51
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

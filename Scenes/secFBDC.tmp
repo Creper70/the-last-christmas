@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnl60u81pkrhu"]
+
+[ext_resource type="PackedScene" uid="uid://jh2fwndodxhg" path="res://Scenes/player.tscn" id="1_024bv"]
+[ext_resource type="PackedScene" uid="uid://dedgot48xyuf8" path="res://Scenes/enemy.tscn" id="2_cudgx"]
+[ext_resource type="Script" path="res://Scenes/location_1.gd" id="3_pt0be"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfaly"]
+size = Vector2(105, 96)
+
+[node name="SecondStage" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_024bv")]
+position = Vector2(16, 322)
+
+[node name="enemy" parent="." instance=ExtResource("2_cudgx")]
+position = Vector2(316, 574)
+
+[node name="enemy2" parent="." instance=ExtResource("2_cudgx")]
+position = Vector2(549, 575)
+
+[node name="enemy3" parent="." instance=ExtResource("2_cudgx")]
+position = Vector2(802, 573)
+
+[node name="location1" type="Area2D" parent="."]
+position = Vector2(982, -1)
+script = ExtResource("3_pt0be")
+
+[node name="location" type="Marker2D" parent="location1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="location1"]
+shape = SubResource("RectangleShape2D_mfaly")
+
+[node name="location2" type="Area2D" parent="."]
+position = Vector2(696, -1)
+script = ExtResource("3_pt0be")
+
+[node name="location" type="Marker2D" parent="location2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="location2"]
+shape = SubResource("RectangleShape2D_mfaly")
+
+[node name="location3" type="Area2D" parent="."]
+position = Vector2(1152, 236)
+script = ExtResource("3_pt0be")
+
+[node name="location" type="Marker2D" parent="location3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="location3"]
+position = Vector2(-30, 3)
+shape = SubResource("RectangleShape2D_mfaly")

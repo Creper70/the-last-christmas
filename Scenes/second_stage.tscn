@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=4 uid="uid://bnl60u81pkrhu"]
+
+[ext_resource type="PackedScene" uid="uid://jh2fwndodxhg" path="res://Scenes/player.tscn" id="1_024bv"]
+[ext_resource type="Texture2D" uid="uid://cbktlfnoe4p7d" path="res://Sprites/Tilemap/AtlasTeste.png" id="1_aiya4"]
+[ext_resource type="Script" path="res://Scripts/second_stage.gd" id="1_pdviq"]
+[ext_resource type="PackedScene" uid="uid://dedgot48xyuf8" path="res://Scenes/enemy.tscn" id="2_cudgx"]
+[ext_resource type="Script" path="res://Scenes/location_1.gd" id="3_pt0be"]
+[ext_resource type="PackedScene" uid="uid://3ygp8rjgfajd" path="res://Scenes/porta_voltar.tscn" id="6_gpfgc"]
+[ext_resource type="PackedScene" uid="uid://duqj8fsxyot0u" path="res://Scenes/porta.tscn" id="6_nipt0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yioaw"]
+texture = ExtResource("1_aiya4")
+texture_region_size = Vector2i(256, 256)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 84, 86, 84, 86, 128, -128, 128)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 88, -128, 88)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -86, 128, -92, 86, -128, 88)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-86, -128, 128, -128, 128, 128, -88, 128)
+2:5/0 = 0
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 88, -128, 86, 128, -128, 128)
+0:5/0 = 0
+0:4/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:3/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+4:6/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+6:4/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+5:5/0 = 0
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, -58, 128, -60, 128, 56, -64, 58)
+6:7/0 = 0
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -56, 128, -60, 128, 56, -128, 54)
+2:6/0 = 0
+4:7/0 = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -56, 128, -60, 128, 56, -128, 54)
+3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -56, 128, -60, 128, 56, -128, 54)
+2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -56, 128, -60, 128, 56, -128, 54)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66, -60, 128, -60, 128, 56, -60, 54)
+7:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k2535"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_yioaw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfaly"]
+size = Vector2(105, 96)
+
+[node name="SecondStage" type="Node2D"]
+script = ExtResource("1_pdviq")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(34, -72)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAABAAAAAAACAAUAAAABAAEAAAACAAUAAAACAAEAAAACAAUAAAACAAIAAAACAAUAAAADAAIAAAACAAUAAAAEAAIAAAACAAUAAAAEAAEAAAACAAUAAAADAAEAAAACAAUAAAADAAAAAAACAAUAAAACAAAAAAACAAUAAAAAAAEAAAACAAUAAAAAAAIAAAACAAUAAAAAAAMAAAACAAUAAAABAAMAAAACAAUAAAACAAMAAAACAAUAAAABAAIAAAACAAUAAAADAAMAAAACAAUAAAAEAAMAAAACAAUAAAAEAAAAAAACAAUAAAAFAAAAAAACAAUAAAAFAAEAAAACAAUAAAAFAAIAAAACAAUAAAAFAAMAAAACAAUAAAAGAAMAAAACAAUAAAAGAAIAAAACAAUAAAAGAAEAAAACAAUAAAAGAAAAAAACAAUAAAAGAP//AAACAAUAAAAFAP//AAACAAUAAAAEAP//AAACAAUAAAADAP//AAACAAUAAAABAP//AAACAAUAAAAAAP//AAACAAUAAAD/////AAACAAUAAAD//wAAAAACAAUAAAD//wEAAAACAAUAAAD//wIAAAACAAUAAAD//wMAAAACAAUAAAD//wQAAAAGAAcAAAAAAAQAAAAGAAcAAAABAAQAAAACAAcAAAACAAQAAAAGAAcAAAADAAQAAAADAAcAAAAEAAQAAAAGAAcAAAAFAAQAAAAEAAcAAAAGAAQAAAAGAAcAAAAHAAQAAAAGAAcAAAAHAAMAAAACAAUAAAAHAAIAAAACAAUAAAAHAAEAAAACAAUAAAAHAAAAAAACAAUAAAAHAP//AAACAAUAAAD///7/AAACAAQAAAAAAP7/AAACAAQAAAABAP7/AAACAAQAAAACAP7/AAACAAQAAAADAP7/AAACAAQAAAAEAP7/AAACAAQAAAAFAP7/AAACAAQAAAAGAP7/AAACAAQAAAAHAP7/AAACAAQAAAAIAP7/AAADAAQAAAAIAP//AAADAAUAAAAIAAAAAAADAAUAAAAIAAEAAAACAAYAAAAIAAIAAAADAAUAAAAIAAMAAAADAAUAAAAIAAQAAAAFAAQAAFAJAAUAAAAEAAYAAAAIAAUAAAABAAYAAAAHAAUAAAABAAYAAAAGAAUAAAABAAYAAAAFAAUAAAABAAYAAAAEAAUAAAABAAYAAAADAAUAAAABAAYAAAACAAUAAAABAAYAAAABAAUAAAABAAYAAAAAAAUAAAABAAYAAAD//wUAAAABAAYAAAD+/wUAAAABAAYAAAD+/wQAAAAFAAQAAGD+/wMAAAABAAUAAAD+/wIAAAABAAUAAAD+/wEAAAACAAYAADD+/wAAAAABAAUAAAD+////AAABAAUAAAD+//7/AAABAAQAAAD9/wUAAAAAAAYAAAD9/wQAAAAAAAUAAAD9/wMAAAAAAAUAAAD9/wIAAAAAAAUAAAD9/wEAAAAAAAUAAAD9/wAAAAAAAAUAAAD9////AAAAAAUAAAD9//7/AAAAAAUAAAD9//3/AAAAAAMAAAD+//3/AAABAAMAAAD///3/AAABAAMAAAAAAP3/AAABAAMAAAABAP3/AAABAAMAAAACAP3/AAABAAMAAAADAP3/AAABAAMAAAAEAP3/AAABAAMAAAAFAP3/AAABAAMAAAAGAP3/AAABAAMAAAAHAP3/AAABAAMAAAAIAP3/AAABAAMAAAAJAP3/AAAEAAMAAAAJAP7/AAAEAAQAAAAJAP//AAAEAAQAAAAJAAAAAAAEAAQAAAAJAAEAAAAEAAQAAAAJAAIAAAAEAAQAAAAJAAMAAAAEAAQAAAAJAAQAAAAEAAQAAAACAP//AAACAAUAAAA=")
+tile_set = SubResource("TileSet_k2535")
+
+[node name="Player" parent="." instance=ExtResource("1_024bv")]
+position = Vector2(1943, 201)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.4, 0.4)
+limit_left = -532
+limit_top = -638
+limit_right = 2391
+limit_bottom = 1261
+editor_draw_limits = true
+
+[node name="enemy" parent="." instance=ExtResource("2_cudgx")]
+position = Vector2(444, 870)
+
+[node name="enemy2" parent="." instance=ExtResource("2_cudgx")]
+position = Vector2(910, 862)
+
+[node name="enemy3" parent="." instance=ExtResource("2_cudgx")]
+position = Vector2(1427, 859)
+
+[node name="location1" type="Area2D" parent="."]
+position = Vector2(1306, -350)
+script = ExtResource("3_pt0be")
+
+[node name="location" type="Marker2D" parent="location1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="location1"]
+shape = SubResource("RectangleShape2D_mfaly")
+
+[node name="location2" type="Area2D" parent="."]
+position = Vector2(2108, -106)
+script = ExtResource("3_pt0be")
+
+[node name="location" type="Marker2D" parent="location2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="location2"]
+shape = SubResource("RectangleShape2D_mfaly")
+
+[node name="location3" type="Area2D" parent="."]
+position = Vector2(2105, 571)
+script = ExtResource("3_pt0be")
+
+[node name="location" type="Marker2D" parent="location3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="location3"]
+shape = SubResource("RectangleShape2D_mfaly")
+
+[node name="PortaVoltar" parent="." instance=ExtResource("6_gpfgc")]
+
+[node name="Porta" parent="." instance=ExtResource("6_nipt0")]
+position = Vector2(2176, 308)

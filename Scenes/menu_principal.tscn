@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://627wggu07xls"]
+
+[ext_resource type="Script" path="res://Scenes/menu_principal.gd" id="1_gqcsl"]
+[ext_resource type="Texture2D" uid="uid://dj1ae2h8iq1c8" path="res://Sprites/Titlecard.png" id="1_nus32"]
+[ext_resource type="Texture2D" uid="uid://com8anu8sw0q5" path="res://Sprites/PlayButton.png" id="3_vxgry"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gqcsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 323)
+texture = ExtResource("1_nus32")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 404.0
+offset_right = 656.0
+offset_bottom = 461.0
+focus_mode = 0
+flat = true
+
+[node name="PlayButton" type="Sprite2D" parent="."]
+position = Vector2(554, 490)
+texture = ExtResource("3_vxgry")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

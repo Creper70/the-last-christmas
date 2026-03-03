@@ -1,0 +1,6 @@
+Santa: So… you finally made it.
+Santa: I see you’re still merciful, leaving some of your brothers alive.
+Santa: You are not worthy to set foot in this room.
+[signal arg="GunOut"]
+Santa: Die.
+[signal arg="Die"]

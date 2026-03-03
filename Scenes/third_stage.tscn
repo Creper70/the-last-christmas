@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=4 uid="uid://bw7nc7h7ilo5m"]
+
+[ext_resource type="Texture2D" uid="uid://cbktlfnoe4p7d" path="res://Sprites/Tilemap/AtlasTeste.png" id="1_47bc5"]
+[ext_resource type="Script" path="res://Scripts/third_stage.gd" id="1_xdnpj"]
+[ext_resource type="PackedScene" uid="uid://jh2fwndodxhg" path="res://Scenes/player.tscn" id="2_5rdrm"]
+[ext_resource type="PackedScene" uid="uid://duqj8fsxyot0u" path="res://Scenes/porta.tscn" id="5_q61yc"]
+[ext_resource type="PackedScene" uid="uid://3ygp8rjgfajd" path="res://Scenes/porta_voltar.tscn" id="5_vqtwb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssx8n"]
+texture = ExtResource("1_47bc5")
+texture_region_size = Vector2i(256, 256)
+2:5/0 = 0
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:4/0 = 0
+1:4/0/y_sort_origin = 1
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:4/0 = 0
+2:4/0/y_sort_origin = 1
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:3/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+4:3/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+4:6/0 = 0
+2:3/0 = 0
+2:3/0/y_sort_origin = 1
+2:6/0 = 0
+3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_r83nw"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ssx8n")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04g0q"]
+texture = ExtResource("1_47bc5")
+texture_region_size = Vector2i(256, 256)
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8jr7d"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_04g0q")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3osu"]
+size = Vector2(130, 196)
+
+[node name="ThirdStage" type="Node2D"]
+script = ExtResource("1_xdnpj")
+
+[node name="tilemap" type="Node2D" parent="."]
+
+[node name="Paredes" type="TileMapLayer" parent="tilemap"]
+z_index = -1
+tile_map_data = PackedByteArray("AAAAAAEAAAACAAUAAAAAAAAAAAACAAUAAAABAAAAAAACAAUAAAACAAAAAAACAAUAAAADAAAAAAACAAUAAAAEAAAAAAACAAUAAAAFAAAAAAACAAUAAAAGAAAAAAACAAUAAAAGAAEAAAACAAUAAAAFAAEAAAACAAUAAAAEAAEAAAACAAUAAAADAAEAAAACAAUAAAACAAEAAAACAAUAAAABAAEAAAACAAUAAAD/////AAABAAQAAAAAAP//AAACAAQAAAABAP//AAACAAQAAAACAP//AAACAAQAAAAEAP//AAACAAQAAAAFAP//AAACAAQAAAAGAP//AAACAAQAAAAHAP//AAADAAQAAAAHAAEAAAACAAYAAAD//wAAAAABAAUAAAD//wEAAAACAAYAADD//wIAAAABAAUAAAD+/wIAAAAAAAUAAAD+/wEAAAAAAAUAAAD+/wAAAAAAAAUAAAD+////AAAAAAUAAAD+//7/AAAAAAMAAAD///7/AAABAAMAAAAAAP7/AAABAAMAAAABAP7/AAABAAMAAAACAP7/AAABAAMAAAADAP//AAACAAYAAGADAP7/AAADAAMAAAAEAP7/AAADAAMAAAAFAP7/AAADAAMAAAAGAP7/AAADAAMAAAAHAP7/AAADAAMAAAAIAP7/AAAEAAMAAAAIAP//AAAEAAQAAAAIAAAAAAAEAAQAAAAIAAEAAAAEAAQAAAAIAAIAAAAEAAUAAAAHAAIAAAADAAUAAAAGAAIAAAACAAUAAAAFAAIAAAACAAUAAAAEAAIAAAACAAUAAAADAAIAAAACAAUAAAACAAIAAAACAAUAAAABAAIAAAACAAUAAAAAAAIAAAACAAUAAAD+/wMAAAAAAAYAAAD//wMAAAABAAYAAAAAAAMAAAABAAYAAAABAAMAAAABAAYAAAACAAMAAAABAAYAAAADAAMAAAABAAYAAAAEAAMAAAABAAYAAAAFAAMAAAABAAYAAAAGAAMAAAABAAYAAAAIAAMAAAAEAAYAAAAHAAMAAAADAAYAAAAHAAAAAAADAAUAAAA=")
+tile_set = SubResource("TileSet_r83nw")
+
+[node name="Porta" type="TileMapLayer" parent="tilemap"]
+tile_set = SubResource("TileSet_8jr7d")
+
+[node name="Player" parent="." instance=ExtResource("2_5rdrm")]
+position = Vector2(892, -20)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-7, 2)
+zoom = Vector2(0.7, 0.7)
+limit_left = -309
+limit_top = -310
+limit_bottom = 567
+editor_draw_limits = true
+
+[node name="portaArmazen" type="Area2D" parent="."]
+position = Vector2(892, -218)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portaArmazen"]
+position = Vector2(0, 125)
+shape = SubResource("RectangleShape2D_p3osu")
+
+[node name="Porta" parent="." instance=ExtResource("5_q61yc")]
+position = Vector2(1911, 382)
+
+[node name="PortaVoltar" parent="." instance=ExtResource("5_vqtwb")]
+position = Vector2(-61, 382)
+
+[connection signal="body_entered" from="portaArmazen" to="." method="_on_porta_armazen_body_entered"]
+[connection signal="body_entered" from="portaArmazen" to="portaArmazen" method="_on_body_entered"]
